@@ -1,0 +1,7 @@
+node_modules
+
+#ignore idea
+.idea
+*.idea
+
+node_modules/
