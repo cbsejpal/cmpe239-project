@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var clusters = require('./routes/clusters');
 
 var app = express();
 
@@ -56,5 +57,7 @@ app.use(function(err, req, res, next) {
   });
 });
 
+
+clusters.getClustes();
 
 module.exports = app;
