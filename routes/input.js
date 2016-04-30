@@ -54,13 +54,13 @@ exports.addData = function addData(clusters, dataset, meanArray){
         var bugs;
 
         if(keysSorted[i] == 0){
-            bugs = "low"
+            bugs = "low";
         }
         else if(keysSorted[i] == 1){
             bugs = "medium";
         }
         else{
-            bugs = "high"
+            bugs = "high";
         }
 
         for(var j=0;j<clusters[i].length;j++){
