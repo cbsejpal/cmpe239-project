@@ -16,7 +16,8 @@ var clustersSchema = new Schema({
     rfc: {type: Number, required:true},
     lcom: {type: Number, required:true},
     bugs: {type: Number, required: true},
-    bugfreq: {type: String, required:true},
+    bugFreq: {type: String},
+    //file: {type: String},
     source: {type: String, required: true}
 }, {
     versionKey : false

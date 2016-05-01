@@ -4,10 +4,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var request = require('request');
 
 var routes = require('./routes/index');
 var clusters = require('./routes/clusters');
-//var fileio = require('./routes/fileio');
+var fileio = require('./routes/fileio');
 
 var app = express();
 
@@ -23,7 +25,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+/*
 app.use('/', routes);
+app.use('/addClusteredData', clusters);
+*/
+
+var router = require('./config/routes.js');
+router.setupRoutes(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -57,6 +65,32 @@ app.use(function(err, req, res, next) {
 });
 
 
-clusters.getClustes();
-//file.getFiles();
+var connection = mongoose.connect("mongodb://localhost:27017/cmpe239");
+
+//clusters.addClusteredData();
+//fileio.getFiles();
+
+var source = "prop";
+
+/*request('http://localhost:3000/clusters/clusterData?source='+source, function(error, response, body){
+
+  if(!error){
+    console.log("done");
+    //console.log(response);
+    console.log(body);
+  }
+
+});*/
+
+/*request('http://localhost:3000/clusters/addData', function(error, response, body){
+
+  if(!error){
+    console.log("done");
+    //console.log(response);
+    console.log(body);
+  }
+
+});*/
+
+
 module.exports = app;
