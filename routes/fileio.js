@@ -3,8 +3,8 @@
  */
 
 var dir = require('node-dir');
-var fs = require('fs');
 
+var fs = require('fs');
 
 exports.getFiles = function getFiles(cb) {
 

@@ -4,6 +4,7 @@
 
 var express = require('express');
 var router = express.Router();
+var fs = require('fs');
 
 var multer = require('multer');
 
@@ -57,7 +58,7 @@ router.post('/uploadFile', function(req, res) {
                             noc: parseFloat(data[5]),
                             cbo: parseFloat(data[6]),
                             rfc: parseFloat(data[7]),
-                            lcom: parseFloat(data[8]),
+                            lcom: parseFloat(data[8])
                         };
 
                         jsonObject.data.push(newCluster);

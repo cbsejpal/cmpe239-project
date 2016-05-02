@@ -70,9 +70,8 @@ router.get('/clusterData', function(req, res, next) {
             meanArray[i] = mean;
 
         }
-        console.log("meanArray" + meanArray);
+
         var keysSorted = Object.keys(meanArray).sort(function(a,b){return meanArray[a]-meanArray[b]});
-        console.log("keysSorted" + keysSorted);
 
         var bugs = [];
         for(var i=0;i<clusteredData.length;i++) {
@@ -90,7 +89,6 @@ router.get('/clusterData', function(req, res, next) {
 
         for(var i=0;i<clusteredData.length;i++) {
 
-            console.log(bugs[i] + " for cluster " + i);
             for(var j=0;j<clusteredData[i].length;j++){
 
                 Clusters.findOneAndUpdate({_id: clusters[clusteredData[i][j]]._id}, {bugFreq: bugs[i]}  , {upsert: true}, function(err){
@@ -115,7 +113,7 @@ router.get('/clusterData', function(req, res, next) {
 router.get('/getData', function(req, res, next) {
 
     var source = req.param('source');
-    console.log("request " + source);
+
     input.getMongoData(source, function(clusters){
         res.send(clusters);
     });
