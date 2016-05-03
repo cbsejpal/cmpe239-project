@@ -32,9 +32,18 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script
+            src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.9.0/loading-bar.min.js'></script>
+
+    <script src="/angular/results.js"></script>
+
 </head>
 
-<body id="page-top">
+<body id="page-top" ng-app="result" ng-controller="c-result">
 
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -85,9 +94,9 @@
             </div>
         </div>
         <div class="row">
-            <form action="/fileUpload/uploadFile" method="POST" enctype="multipart/form-data">
+            <form enctype="multipart/form-data">
                 Select a .csv file to upload:
-                <input type="file" name="file" accept=".csv" onchange="checkfile(this);"> <br/>
+                <input type="file" name="file" accept=".csv" onchange="checkfile(this);" file-model='fileModel'> <br/>
 
                 <div class="radio">
                     <label><input type="radio" name="optradio" value="ant">ant</label>
@@ -129,16 +138,20 @@
                     <label><input type="radio" name="optradio" value="xerces">xerces</label>
                 </div>
 
-                <input type="submit" value="Let's Classify">
+                <input type="button" value="Let's Classify" ng-click="uploadFile()">
             </form>
 
         </div>
 
+
+        <div id="chartscontainer">
+
+        </div>
 </section>
 
 
 <!-- jQuery -->
-<script src="js/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>

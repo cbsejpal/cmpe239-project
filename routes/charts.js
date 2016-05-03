@@ -171,6 +171,114 @@ router.get('/defect_analysis', function(req, res) {
 });
 
 
+router.post('/results', function(req, res){
+
+    var jsonObject = req.param('json');
+    //var source = req.param('source');
+
+/*
+    for(var i=0;i<jsonObject.length;i++){
+        console.log(JSON.stringify(jsonObject[i]));
+    }
+*/
+
+
+    //console.log(source);
+
+    var low = [];
+    var medium = [];
+    var high = [];
+
+    var json = {};
+
+    //json.source = source;
+
+    for(var i=0;i<jsonObject.length;i++){
+
+        var data = [];
+
+        if(jsonObject[i].bugFreq == "low"){
+            data.push(jsonObject[i].wmc);
+            data.push(jsonObject[i].dit);
+            low.push(data);
+        }
+        else if(jsonObject[i].bugFreq == "medium"){
+
+            data.push(jsonObject[i].wmc);
+            data.push(jsonObject[i].dit);
+            medium.push(data);
+        }
+        else if(jsonObject[i].bugFreq == "high"){
+
+            data.push(jsonObject[i].wmc);
+            data.push(jsonObject[i].dit);
+            high.push(data);
+        }
+
+        if(i == jsonObject.length - 1){
+            json.low = low;
+            json.medium = medium;
+            json.high = high;
+
+            res.send(json);
+        }
+
+    }
+
+});
+
+/*router.post('/results', function(req, res){
+
+    var jsonObject = req.params('json');
+    var source = req.params('source');
+
+    var low = [], medium = [], high = [];
+
+//    var counter = 0 ;
+    var json = {};
+
+    json.source = source;
+
+    for(var i=0;i<jsonObject.length;i++){
+
+        var data = [];
+
+        if(jsonObject[i].bugFreq == "low"){
+            data.push(jsonObject[i].wmc);
+            data.push(jsonObject[i].dit);
+            low.push(data);
+       //     console.log("low " + jsonObject[i]);
+     //       counter++;
+        }
+        else if(jsonObject[i].bugFreq == "medium"){
+            data.push(jsonObject[i].wmc);
+            data.push(jsonObject[i].dit);
+            medium.push(data);
+   //         console.log("medium " + jsonObject[i]);
+ //           counter++;
+        }
+        else if(jsonObject[i].bugFreq == "high"){
+            data.push(jsonObject[i].wmc);
+            data.push(jsonObject[i].dit);
+            high.push(data);
+//            console.log("high " + jsonObject[i]);
+//            counter++;
+        }
+
+        if(i == jsonObject.length - 1){
+
+            json.low = low;
+            json.medium = medium;
+            json.high = high;
+
+            console.log(json);
+
+            res.send(json);
+        }
+
+    }
+
+});*/
 
 
 module.exports = router;

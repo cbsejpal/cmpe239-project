@@ -85,7 +85,12 @@ router.post('/uploadFile', function(req, res) {
                             console.log(error);
                         } else {
                             //console.log("response " + response.statusCode, body);
-                            res.send(body);
+                            //res.send(body);
+
+                            console.log();
+
+                            //var jsonData = JSON.s
+                            res.send({json: body, source: jsonObject.source});
                         }
                     });
 
