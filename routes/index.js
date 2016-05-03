@@ -30,4 +30,12 @@ router.get('/futurework', function(req, res, next){
   res.render('futurework', { title: '' });
 });
 
+router.get('/clusterNclassification', function(req, res, next){
+  res.render('clusterNclassification', { title: '' });
+});
+
+router.get('/why', function(req, res, next){
+  res.render('why', { title: '' });
+});
+
 module.exports = router;

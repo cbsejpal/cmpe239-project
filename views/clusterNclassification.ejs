@@ -32,6 +32,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+
 </head>
 
 <body id="page-top">
@@ -73,62 +74,43 @@
 
 <section class="" id="about">
 
+    <div class="header-content-inner">
+        <h1 class="text-center">Clustering & Classification technique</h1>
+        <hr>
+    </div>
+
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 text-center">
-                <h1 class="page-header"> Future work
-                    <small></small>
-                </h1>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6">
-            <h2 class="text-left">1. Model Improvements</h2>
+            <h2 class="text-center">K Means Clustering</h2>
             <div>
-                <p>Include more metrics to improve accuracy: <br/>
-
-                    <ul>
-                        <li>Bansiy and Davis
-                            <ul>
-                                <li>Number of Public Methods (NPM)</li>
-                                <li>Data Access Metric (DAM)</li>
-                                <li>Measure of Aggregation (MOA)</li>
-                                <li>Measure of Functional Abstraction (MFA)</li>
-                                <li>Cohesion Among Methods of Class (CAM)</li>
-                            </ul>
-                        </li>
-                        <li>McCabe's metric
-                        <ul>
-                            <li>Cyclomatic complexity CC</li>
-                        </ul>
-                        </li>
-                        <li>Lines of Code (LoC)</li>
-                    </ul>
+                <p>K-means is one of the simplest unsupervised learning algorithms that solve the well known clustering problem. The procedure follows a simple and easy way to classify a given data set through a certain number of clusters (assume k clusters) fixed a priori. The main idea is to define k centroids, one for each cluster. These centroids should be placed in a cunning way because of different location causes different result. So, the better choice is to place them as much as possible far away from each other. The next step is to take each point belonging to a given data set and associate it to the nearest centroid. When no point is pending, the first step is completed and an early groupage is done. At this point we need to re-calculate k new centroids as barycenters of the clusters resulting from the previous step. After we have these k new centroids, a new binding has to be done between the same data set points and the nearest new centroid. A loop has been generated. As a result of this loop we may notice that the k centroids change their location step by step until no more changes are done. In other words centroids do not move any more.
                 </p>
+            </div>
 
-            </div>
-            </div>
-            <div class="col-md-6">
-                <h2 class="">2. System Improvements</h2>
-                <div>
-                    <p>
-                    <ul>
-                        <li>Check Bug reports</li>
-                        <li>Mine code repositories</li>
-                        <li>Suggest testers - collaborate with HRMS</li>
-                    </ul>
-                    </p>
-                </div>
-            </div>
         </div>
 
         <div class="row">
+            <h2 class="text-center">Ant Colony Optimization Classification</h2>
+            <p>Ant Colony Optimization (ACO) is a technique based on probability that can solve computational problems using graphs by finding good paths to the destination. It is based on the search behavior of the real ant colonies for food. A biological ant by itself is a simple insect with limited capabilities, and is guided by straightforward decision rules. However, these simple rules are sufficient for the overall ant colony to find short paths from the nest to the food source.<br>
+                Ants drop chemical substance pheromone to attract other ants on their route. As show in Fig. 1, as the ants start there won’t be any pheromone in the first try. However, after the first try, as shown in Fig. 2, the blue path has more pheromone than the red path so the in the second try, other ants are highly motivated to follow the second path as it has more pheromone than the first path and which is a good path to follow to their destination.</p>
+            <div class="col-md-6 text-center">
+
+                <img style="margin-left: 100px;" src="img/1.jpg" class="img-responsive" alt="" width="350px" height="350px"> <br/>
+                <small>Fig. 1. As the ant are starting, both route has 50%</small>
+            </div>
+            <div class="col-md-6 text-center">
+                <img style="margin-left: 100px;" src="img/2.jpg" class="img-responsive" alt="" width="350px" height="350px"> <br/>
+                <small>Fig. 2. Blue indicates 67% and Red indicates 33%</small>
+            </div>
 
         </div>
 
 
     </div>
+
+
+
+
 </section>
 
 
