@@ -1,15 +1,19 @@
 /*
 Created by rushil
  */
-var app = angular.module('defectAnalysis', []);
+var app = angular.module('defectAnalysis', ['angular-loading-bar'])
+    .config(function(cfpLoadingBarProvider) {
+        cfpLoadingBarProvider.includeSpinner = true;
+    });
 
 app.controller('analysis', [ '$scope', '$http',
     function($scope, $http) {
 
         $scope.init = function(){
+
             $http({
                 method : "GET",
-                url : '/charts/defect_analysis',
+                url : '/charts/defect_analysis'
             }).success(function(data) {
                 $scope.highCharts(data);
             }).error(function(error) {
