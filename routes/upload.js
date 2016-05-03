@@ -8,6 +8,8 @@ var fs = require('fs');
 var dir = require('node-dir');
 var multer = require('multer');
 
+var request = require('request');
+
 var storage =   multer.diskStorage({
     destination: function (req, file, callback) {
         callback(null, './public/uploads');
@@ -68,8 +70,25 @@ router.post('/uploadFile', function(req, res) {
                     //cb(mainData, counter++, length, filename);
                     //var length = "" + jsonObject.data.length;
                     fs.unlinkSync(files[0]);
-                    res.redirect('10.0.0.239:8080/software-defect-classification-service/rest/classificationService/classify?jsonObject'+jsonObject);
+                    //res.redirect('10.0.0.239:8080/software-defect-classification-service/rest/classificationService/classify?jsonObject'+jsonObject);
 
+
+                    request({
+                        url: 'http://10.0.0.239:8080/software-defect-classification-service/rest/classificationService/classify', //URL to hit
+                        method: 'POST',
+                        //Lets post the following key/values as form
+                        json: {
+                            source: jsonObject.source,
+                            data: jsonObject.data
+                        }
+                    }, function(error, response, body){
+                        if(error) {
+                            console.log(error);
+                        } else {
+                            console.log("response " + response.statusCode, body);
+                            res.send(body);
+                        }
+                    });
 
                     //res.send(jsonObject);
                 });
