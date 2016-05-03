@@ -18,7 +18,8 @@ var clustersSchema = new Schema({
     bugs: {type: Number, required: true},
     bugFreq: {type: String},
     //file: {type: String},
-    source: {type: String, required: true}
+    source: {type: String, required: true},
+    class: {type: String}
 }, {
     versionKey : false
 });

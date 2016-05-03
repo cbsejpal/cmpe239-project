@@ -5,7 +5,7 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
-
+var dir = require('node-dir');
 var multer = require('multer');
 
 var storage =   multer.diskStorage({
@@ -40,7 +40,7 @@ router.post('/uploadFile', function(req, res) {
 
             var jsonObject = {};
 
-            jsonObject.source = "";
+            jsonObject.source = "ant";
 
             jsonObject.data = [];
             var csvStream = csv()
@@ -66,9 +66,12 @@ router.post('/uploadFile', function(req, res) {
                 })
                 .on("end", function(err){
                     //cb(mainData, counter++, length, filename);
-                    var length = "" + jsonObject.data.length;
+                    //var length = "" + jsonObject.data.length;
                     fs.unlinkSync(files[0]);
-                    res.end(length);
+                    res.redirect('10.0.0.239:8080/software-defect-classification-service/rest/classificationService/classify?jsonObject'+jsonObject);
+
+
+                    //res.send(jsonObject);
                 });
 
             stream.pipe(csvStream);

@@ -42,7 +42,8 @@ exports.addData = function getData(filename, cb){ //, y, length, cb){
                     bugs: parseFloat(data[23]),
                     //bugFreq: bugs,
                     //file: filename,
-                    source: source
+                    source: source,
+                    class: data[2]
                 });
 
                 newCluster.save(function (err) {
@@ -122,8 +123,8 @@ exports.addData = function getData(filename, cb){ //, y, length, cb){
 
 
 exports.getMongoData = function getMongoData(source, cb){
-
-    Clusters.find({source: source}, function(err, clusters){
+    //source: source
+    Clusters.find({}, function(err, clusters){
         if (!err){
             //console.log(clusters.length);
             cb(clusters);

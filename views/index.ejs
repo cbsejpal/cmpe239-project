@@ -3,129 +3,369 @@
 
 <head>
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <title>Software Defect Prediction System</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <title>Software Defect Prediction System</title>
 
-  <!-- Custom CSS -->
-  <link href="stylesheets/modern-business.css" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/creative.css" type="text/css">
+    <!-- Custom CSS -->
+    <link href="css/round-about.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
 </head>
 
-<body>
+<body id="page-top">
 
-<!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">Software Defect Prediction System</a>
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="#page-top">Software Defect Prediction System</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="page-scroll" href="#approach">Approach</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#test">Test</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#stats">Statistics</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#team">Team</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-
-        <li>
-          <a href="about">About</a>
-        </li>
-        <li>
-          <a href="registerUser">Test</a>
-        </li>
-        <li>
-          <a href="registerUser">Statistics</a>
-        </li>
-        <li>
-          <a href="registerUser">Team</a>
-        </li>
-
-      </ul>
-    </div>
-
-  </div>
-  <!-- /.navbar-collapse -->
-  </div>
-  <!-- /.container -->
+    <!-- /.container-fluid -->
 </nav>
 
-<!-- Header Carousel -->
-<header id="myCarousel" class="carousel slide" style="height:100%;">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
-      <div class="fill" style="background-image:url('./images/1.jpg');"></div>
-      <div class="carousel-caption">
-        <h1>Welcome to</h1>
-        <h3 style="font-family: 'Raleway', sans-serif;">Find-my-session, an IOT based system for conferences</h3>
-      </div>
+<header>
+    <div class="header-content">
+        <div class="header-content-inner">
+            <h1>Predicting Software defects using CK metrics</h1>
+            <hr>
+            <p>Combining clustering and classification techniques on CK metrics and predicting defects on future piece of software!</p>
+            <a href="#approach" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+        </div>
     </div>
-    <div class="item">
-      <div class="fill" style="background-image:url('./images/2.jpg');"></div>
-      <div class="carousel-caption">
-
-        <h3>Find the session information about the attendees</h3>
-      </div>
-    </div>
-    <div class="item">
-      <div class="fill" style="background-image:url('./images/3.jpg');"></div>
-      <div class="carousel-caption">
-
-        <h3>Realtime updates to the users about the on going sessions.</h3>
-      </div>
-    </div>
-  </div>
-
-  <!-- Controls -->
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-    <span class="icon-prev"></span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-    <span class="icon-next"></span>
-  </a>
 </header>
 
+<section id="approach">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Approach</h2>
+                <hr class="primary">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <i class="fa fa-4x fa-tasks wow bounceIn text-primary"></i>
+                    <h3>Training dataset</h3>
+                    <p class="text-muted">Dataset having CK metrics of different softwares such as ant, camel, log4j are used as training dataset!</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <i class="fa fa-4x fa-database wow bounceIn text-primary" data-wow-delay=".1s"></i>
+                    <h3>K Means Clustering on training dataset</h3>
+                    <p class="text-muted">K means is applied on bugs column of the dataset to cluster the column and decide low, medium and high as class attribute</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <i class="fa fa-4x fa-inbox wow bounceIn text-primary" data-wow-delay=".2s"></i>
+                    <h3>Clustered data as input to classification algorithm</h3>
+                    <p class="text-muted">The clustered data with bugs column class attribute with values low, medium, high is given as input to classification algorithm</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <i class="fa fa-4x fa-compress wow bounceIn text-primary" data-wow-delay=".3s"></i>
+                    <h3>Apply ACO Classification on CK metrics</h3>
+                    <p class="text-muted">Ant Miner - Ant Colony optimization based classification technique which has highest accuracy is applied on CK metrics</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <i class="fa fa-4x fa-star wow bounceIn text-primary" data-wow-delay=".4s"></i>
+                    <h3>Model Generated</h3>
+                    <p class="text-muted">With the use of Ant Miner Classification algorithm, a training model is generated for different softwares!</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <i class="fa fa-4x fa-check-square-o wow bounceIn text-primary" data-wow-delay=".5s"></i>
+                    <h3>Test the model on test dataset</h3>
+                    <p class="text-muted">Verify the precision and accuracy of the model generated by applying the model on test dataset!</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <i class="fa fa-4x fa-cloud-upload wow bounceIn text-primary" data-wow-delay=".6s"></i>
+                    <h3>Upload data</h3>
+                    <p class="text-muted">Upload new dataset - CK metrics of a specific software and using verified model, classify the data!</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <i class="fa fa-4x fa-bug wow bounceIn text-primary" data-wow-delay=".7s"></i>
+                    <h3>Final Prediction</h3>
+                    <p class="text-muted">After classification is done using the model, final prediction is done on the future piece of software!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-<!-- /.container -->
+<section class="bg-primary" id="test">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="section-heading">Let's test the system.!</h2>
+                <hr class="light">
+
+                <p class="text-faded">Upload any dataset in .csv format which has CK metrics of any software and get the prediction of defects for different classes! <br/>
+                Software's such as ant, camel, jedit, log4j etc. which are open source has lots of bugs and our prediction system can help find bugs easily!
+                </p>
+
+                <a href="/upload" class="btn btn-default btn-xl wow tada"><i class="fa fa-2x fa-file-excel-o" aria-hidden="true"></i> Upload dataset</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="stats">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Statistics</h2>
+                <hr class="primary">
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row no-gutter">
+            <div class="col-lg-4 col-sm-6">
+                <a href="#" class="portfolio-box">
+                    <img src="img/portfolio/9.jpg" class="img-responsive" alt="">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                CK Metrics Insights!
+                            </div>
+                            <div class="project-name">
+
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a href="#" class="portfolio-box">
+                    <img src="img/portfolio/10.jpg" class="img-responsive" alt="">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                Why K-Means and Ant Miner combination ?
+                            </div>
+                            <div class="project-name">
+
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a href="#" class="portfolio-box">
+                    <img src="img/portfolio/7.jpg" class="img-responsive" alt="">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                Datasets information
+                            </div>
+                            <div class="project-name">
+
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a href="#" class="portfolio-box">
+                    <img src="img/portfolio/8.jpg" class="img-responsive" alt="">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                Clusters statistics
+                            </div>
+                            <div class="project-name">
+
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a href="#" class="portfolio-box">
+                    <img src="img/portfolio/11.jpg" class="img-responsive" alt="">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                Why and how Defects occur?
+                            </div>
+                            <div class="project-name">
+
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a href="#" class="portfolio-box">
+                    <img src="img/portfolio/12.jpg" class="img-responsive" alt="">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                Future work - What else we can do?
+                            </div>
+                            <div class="project-name">
+
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="team">
+
+
+
+
+    <div class="container">
+
+        <!-- Introduction Row -->
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1 class="page-header">Team DEXTER!
+                    <small></small>
+                </h1>
+            </div>
+        </div>
+
+        <!-- Team Members Row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <br>
+            </div>
+            <div class="col-lg-4 col-sm-6 text-center">
+                <img class="img-rounded img-responsive img-center" src="img/team/chirag.jpg" alt="" height="200px" width="200px">
+                <h3>Chirag Sejpal
+
+                </h3>
+                <p>MEAN Stack lover! <br/>
+                    <i class="fa fa-github" aria-hidden="true"></i><a href="https://github.com/cbsejpal">/cbsejpal</a> <br>
+                    <i class="fa fa-phone" aria-hidden="true"></i> (408) 791-7884<br>
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:chirag.sejpal@sjsu.edu"> chirag.sejpal@sjsu.edu</a></p>
+            </div>
+            <div class="col-lg-4 col-sm-6 text-center">
+                <img class="img-rounded img-responsive img-center" src="img/team/rushil.jpg" alt="" height="200px" width="200px">
+                <h3>Rushil Shah
+
+                </h3>
+                <p>Android enthusiast! <br/>
+                    <i class="fa fa-github" aria-hidden="true"></i><a href="https://github.com/rushilshah">/rushilshah</a> <br>
+                    <i class="fa fa-phone" aria-hidden="true"></i> (669) 234-2980<br>
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:rushil.shah@sjsu.edu"> rushil.shah@sjsu.edu</a></p>
+            </div>
+            <div class="col-lg-4 col-sm-6 text-center">
+                <img class="img-rounded img-responsive img-center" src="img/team/manthan.jpg" alt="" height="200px" width="200px">
+                <h3>Manthan Doshi
+
+                </h3>
+                <p>Java freak! <br/>
+                    <i class="fa fa-github" aria-hidden="true"></i><a href="https://github.com/MANTHAN-D">/MANTHAN-D</a> <br>
+                    <i class="fa fa-phone" aria-hidden="true"></i> (669) 238-8805<br>
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:manthan.doshi@sjsu.edu"> manthan.doshi@sjsu.edu</a></p>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Software Defect Prediction System 2016</p>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </footer>
+
+
+    </div>
+</section>
 
 <!-- jQuery -->
+<script src="js/jquery.js"></script>
 
-<!-- Script to Activate the Carousel -->
-<script>
-  $('.carousel').carousel({
-    interval: 5000 //changes the speed
-  })
-</script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/jquery.fittext.js"></script>
+<script src="js/wow.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/creative.js"></script>
 
 </body>
 
 </html>
-

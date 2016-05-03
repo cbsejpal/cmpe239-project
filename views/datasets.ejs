@@ -32,9 +32,20 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script
+            src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+    <script src="/angular/dataset.js"></script>
+
+
+
+
 </head>
 
-<body id="page-top">
+<body id="page-top" ng-app="dataset" ng-controller="c-dataset" ng-init="init()">
 
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -71,75 +82,73 @@
     <!-- /.container-fluid -->
 </nav>
 
-<div class="container">
-    <div class="row"></div>
-</div>
-
-<section class="" id="upload">
-
-    <div class="container">
+<section class="" id="about">
+    <hr>
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Upload dataset</h2>
-                <hr class="primary">
+
+            <div id="chartscontainer1" class="col-md-4">
+
             </div>
-        </div>
-        <div class="row">
-            <form action="/fileUpload/uploadFile" method="POST" enctype="multipart/form-data">
-                Select a .csv file to upload:
-                <input type="file" name="file" accept=".csv" onchange="checkfile(this);"> <br/>
 
-                <div class="radio">
-                    <label><input type="radio" name="optradio" value="ant">ant</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="optradio" value="camel">camel</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="optradio" value="forrest">forrest</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="optradio" value="ivy">ivy</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="optradio" value="jedit">jedit</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="optradio" value="log4j">log4j</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="optradio" value="lucene">lucene</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="optradio" value="pbeans">pbeans</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="optradio" value="prop">prop</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="optradio" value="synapse">synapse</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="optradio" value="velocity">velocity</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="optradio" value="xalan">xalan</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="optradio" value="xerces">xerces</label>
-                </div>
+            <div id="chartscontainer2" class="col-md-4">
 
-                <input type="submit" value="Let's Classify">
-            </form>
+            </div>
+
+            <div id="chartscontainer3" class="col-md-4">
+
+            </div>
+
+            <div id="chartscontainer4" class="col-md-4">
+
+            </div>
+
+            <div id="chartscontainer5" class="col-md-4">
+
+            </div>
+
+            <div id="chartscontainer6" class="col-md-4">
+
+            </div>
 
         </div>
+
+        <div id="chartscontainer4" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto">
+
+        </div>
+        <div id="chartscontainer5" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto">
+
+        </div>
+        <div id="chartscontainer6" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto">
+
+        </div>
+        <div id="chartscontainer7" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto">
+
+        </div>
+        <div id="chartscontainer8" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto">
+
+        </div>
+        <div id="chartscontainer9" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto">
+
+        </div>
+        <div id="chartscontainer10" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto">
+
+        </div>
+        <div id="chartscontainer11" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto">
+
+        </div>
+        <div id="chartscontainer12" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto">
+
+        </div>
+        <div id="chartscontainer13" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto">
+
+        </div>
+    </div>
 
 </section>
 
-
 <!-- jQuery -->
-<script src="js/jquery.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 
@@ -147,20 +156,6 @@
 <script src="js/jquery.easing.min.js"></script>
 <script src="js/jquery.fittext.js"></script>
 <script src="js/wow.min.js"></script>
-
-<script>
-    function checkfile(sender) {
-        var validExts = new Array(".csv");
-        var fileExt = sender.value;
-        fileExt = fileExt.substring(fileExt.lastIndexOf('.'));
-        if (validExts.indexOf(fileExt) < 0) {
-            alert("Invalid file selected, valid files are of " +
-                    validExts.toString() + " types.");
-            return false;
-        }
-        else return true;
-    }
-</script>
 
 <!-- Custom Theme JavaScript -->
 <script src="js/creative.js"></script>
