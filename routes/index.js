@@ -22,4 +22,12 @@ router.get('/analysis', function(req, res, next){
   res.render('defectAnalysis', { title: '' });
 });
 
+router.get('/ckmetrics', function(req, res, next){
+  res.render('ckmetrics', { title: '' });
+});
+
+router.get('/futurework', function(req, res, next){
+  res.render('futurework', { title: '' });
+});
+
 module.exports = router;
