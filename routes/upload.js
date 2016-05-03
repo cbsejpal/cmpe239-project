@@ -12,7 +12,7 @@ var request = require('request');
 
 var storage =   multer.diskStorage({
     destination: function (req, file, callback) {
-        callback(null, './public/uploads');
+        callback(null, './uploads');
     },
     filename: function (req, file, callback) {
         callback(null, file.originalname);
@@ -23,7 +23,6 @@ var csv = require("fast-csv");
 
 router.post('/uploadFile', function(req, res) {
 
-
     upload(req,res,function(err) {
         if(err) {
             console.log(err);
@@ -31,18 +30,18 @@ router.post('/uploadFile', function(req, res) {
         }
         console.log("File is uploaded");
 
-        dir.files('./public/uploads/', function(err, files) {
+        dir.files('./uploads/', function(err, files) {
             if (err) throw err;
             //console.log(files);
             //console.log();
             console.log("filename "+ files[0]);
-            //var source = files[0].substring( files[0].indexOf('\\')+1,  files[0].indexOf('\\',  files[0].indexOf('\\')+1));
-
+            var source = files[0].substring( files[0].indexOf('\\')+1,  files[0].indexOf('.'));
+            console.log("source " + source);
             var stream = fs.createReadStream(".\\"+ files[0]);
 
             var jsonObject = {};
 
-            jsonObject.source = "ant";
+            jsonObject.source = source;
 
             jsonObject.data = [];
             var csvStream = csv()
@@ -85,7 +84,7 @@ router.post('/uploadFile', function(req, res) {
                         if(error) {
                             console.log(error);
                         } else {
-                            console.log("response " + response.statusCode, body);
+                            //console.log("response " + response.statusCode, body);
                             res.send(body);
                         }
                     });
