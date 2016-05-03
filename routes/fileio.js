@@ -14,7 +14,7 @@ exports.getFiles = function getFiles(cb) {
         for(var i=0;i<subdirs.length;i++){
             dir.files(subdirs[i], function(err, files) {
                 if (err) throw err;
-                console.log(files);
+                //console.log(files);
                 //console.log();
                 cb(files);
             });

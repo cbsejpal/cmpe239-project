@@ -18,9 +18,9 @@ exports.resetCounter = function resetCounter(){
 exports.addData = function getData(filename, cb){ //, y, length, cb){
     var mainData = [];
 
-    var stream = fs.createReadStream("./"+ filename);
+    var stream = fs.createReadStream(".\\"+ filename);
 
-    var source = filename.substring(filename.indexOf('/')+1, filename.indexOf('/', filename.indexOf('/')+1));
+    var source = filename.substring(filename.indexOf('\\')+1, filename.indexOf('\\', filename.indexOf('\\')+1));
 
     var csvStream = csv()
         .on("data", function(data){
