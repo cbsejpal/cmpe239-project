@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="js\chartInit.js"></script>
+    <script>
+      $(function(){
+        //initBubbleChart();
+        initBarGraph();
+      });
+    </script>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/barGraphStyle.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <p>
+      <svg id="pointGraph" width="500" height="500"></svg>
+    </p>
+    <p id="barPara">
+      <!--<svg id="barGraph" width="1000" height="500"></svg>-->
+    </p>
+  </body>
+</html>

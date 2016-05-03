@@ -18,6 +18,10 @@ router.get('/datasets', function(req, res, next){
   res.render('datasets', { title: '' });
 });
 
+router.get('/analysis', function(req, res, next){
+  res.render('defectAnalysis', { title: '' });
+});
+
 router.get('/ckmetrics', function(req, res, next){
   res.render('ckmetrics', { title: '' });
 });
