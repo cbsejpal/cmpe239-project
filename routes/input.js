@@ -123,8 +123,8 @@ exports.addData = function getData(filename, cb){ //, y, length, cb){
 
 
 exports.getMongoData = function getMongoData(source, cb){
-    //source: source
-    Clusters.find({}, function(err, clusters){
+
+    Clusters.find({source: source}, function(err, clusters){
         if (!err){
             //console.log(clusters.length);
             cb(clusters);
