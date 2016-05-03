@@ -62,4 +62,115 @@ router.get('/statistics', function(req, res) {
 
 });
 
+router.get('/defect_analysis', function(req, res) {
+
+    var response = {"dataset":[],"data":[]};
+
+
+    Clusters.find().distinct('source', function(err, sources){
+        //console.log(sources);
+
+        var counter = 0;
+        for(var i = 0; i <sources.length;i++){
+            var jsonObject = {sources:["wmc","dit","noc","cbo","rfc","lcom"],series:[]};
+
+            Clusters.find({source: sources[i]}, function(err, clusters){
+                var source = clusters[0].source;
+                response.dataset.push(clusters[0].source);
+//                console.log("source " + source);
+
+                var lowCounter = 0, mediumCounter = 0, highCounter = 0;
+                var lowwmc= 0,highwmc = 0, mediumwmc = 0;
+                var lowdit= 0,highdit = 0, mediumdit = 0;
+                var lownoc= 0,highnoc = 0, mediumnoc = 0;
+                var lowcbo= 0,highcbo = 0, mediumcbo = 0;
+                var lowrfc= 0,highrfc = 0, mediumrfc = 0;
+                var lowlcom= 0,highlcom = 0, mediumlcom = 0;
+
+
+                if (!err){
+
+                    for(var j = 0; j<clusters.length;j++){
+                        if(clusters[j].bugFreq == "low"){
+                            lowCounter++;
+                            lowwmc += clusters[j].wmc;
+                            lowdit += clusters[j].dit;
+                            lownoc += clusters[j].noc;
+                            lowcbo += clusters[j].cbo;
+                            lowrfc += clusters[j].rfc;
+                            lowlcom += clusters[j].lcom;
+                        }
+                        else if(clusters[j].bugFreq == "medium"){
+                            mediumCounter++;
+                            mediumwmc += clusters[j].wmc;
+                            mediumdit += clusters[j].dit;
+                            mediumnoc += clusters[j].noc;
+                            mediumcbo += clusters[j].cbo;
+                            mediumrfc += clusters[j].rfc;
+                            mediumlcom += clusters[j].lcom;
+                        }
+                        else{
+                            highCounter++;
+                            highwmc += clusters[j].wmc;
+                            highdit += clusters[j].dit;
+                            highnoc += clusters[j].noc;
+                            highcbo += clusters[j].cbo;
+                            highrfc += clusters[j].rfc;
+                            highlcom += clusters[j].lcom;
+                        }
+                    }
+
+
+                    if(jsonObject.series.length == 0){
+                        jsonObject.series.push({"name":"low",data:[]});
+                        jsonObject.series.push({"name":"medium",data:[]});
+                        jsonObject.series.push({"name":"high",data:[]});
+                    }
+
+                    jsonObject.series[0].data.push(lowwmc/lowCounter);
+                    jsonObject.series[1].data.push(mediumwmc/mediumCounter);
+                    jsonObject.series[2].data.push(highwmc/highCounter);
+
+                    jsonObject.series[0].data.push(lowdit*10/lowCounter);
+                    jsonObject.series[1].data.push(mediumdit*10/mediumCounter);
+                    jsonObject.series[2].data.push(highdit*10/highCounter);
+
+                    jsonObject.series[0].data.push(lownoc*10/lowCounter);
+                    jsonObject.series[1].data.push(mediumnoc*10/mediumCounter);
+                    jsonObject.series[2].data.push(highnoc*10/highCounter);
+
+                    jsonObject.series[0].data.push(lowcbo/lowCounter);
+                    jsonObject.series[1].data.push(mediumcbo/mediumCounter);
+                    jsonObject.series[2].data.push(highcbo/highCounter);
+
+                    jsonObject.series[0].data.push(lowrfc/(lowCounter*2));
+                    jsonObject.series[1].data.push(mediumrfc/(mediumCounter*2));
+                    jsonObject.series[2].data.push(highrfc/(highCounter*2));
+
+                    jsonObject.series[0].data.push(lowlcom/(lowCounter*13));
+                    jsonObject.series[1].data.push(mediumlcom/(mediumCounter*13));
+                    jsonObject.series[2].data.push(highlcom/(highCounter*13));
+
+                    //console.log(jsonObject);
+                    counter++;
+                    response.data.push(jsonObject);
+                    jsonObject = {sources:["wmc","dit","noc","cbo","rfc","lcom"],series:[]};
+
+                    if(counter == sources.length){
+                        console.log(response);
+                        res.send(response);
+                    }
+                } else {throw err;}
+            });
+
+        }
+
+    });
+
+
+});
+
+
+
+
 module.exports = router;

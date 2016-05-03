@@ -18,4 +18,8 @@ router.get('/datasets', function(req, res, next){
   res.render('datasets', { title: '' });
 });
 
+router.get('/analysis', function(req, res, next){
+  res.render('defectAnalysis', { title: '' });
+});
+
 module.exports = router;
