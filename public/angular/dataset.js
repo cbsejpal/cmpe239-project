@@ -2,7 +2,10 @@
  * Created by cbsejpal on 5/2/2016.
  */
 
-var app = angular.module('dataset', []);
+var app = angular.module('dataset', ['angular-loading-bar'])
+    .config(function(cfpLoadingBarProvider) {
+        cfpLoadingBarProvider.includeSpinner = true;
+    });
 
 app.controller('c-dataset', [ '$scope', '$http',
     function($scope, $http) {
